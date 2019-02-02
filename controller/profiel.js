@@ -12,6 +12,6 @@ const profielHandler = (req,res,database)=> {
 	.catch(err =>{ res.status(400).json('Foutje moet kunnen')})	
 }
 
-module.exports{
+module.exports = {
 	profielHandler
 }
