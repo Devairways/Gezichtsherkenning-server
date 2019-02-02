@@ -11,8 +11,11 @@ const profiel = require('./controller/profiel');
 const img = require('./controller/image');
 
 const database = knex({
+	client: 'pg',
+	connection:{
 	connectionString: process.env.DATABASE_URL,
     ssl: true
+    }
 });
 
 app.use(bodyParser.json());
