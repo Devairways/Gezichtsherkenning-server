@@ -4,7 +4,7 @@ const app = new Clarifai.App({
  apiKey: '50fc9203391d4b358c881e5513551955'
 });
 
- const apiHandler = (req.res) => {
+ const apiHandler = (req,res) => {
  	app.models
     .predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
     .then (response =>{ res.json(response)})
@@ -23,6 +23,6 @@ const imgHandler = (req,res,database)=>{
 	.catch(err =>{res.status(400).res.json('aantal entries niet gevonden')})
 }
 
-module.exports{
+module.exports  = {
 	imgHandler
 }
