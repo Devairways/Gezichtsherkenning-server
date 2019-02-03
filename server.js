@@ -28,6 +28,6 @@ app.get('/gebruiker/:id', (req,res) => {profiel.profileHandler(req,res,database)
 app.put('/image',(req,res) => {img.imgHandler(req,res,database)});
 app.post('/imageurl',(req,res) => {img.apiHandler(req,res)});
 
-app.listen(process.env.PORT || 3000, ()=>{
+app.listen(process.env.PORT, ()=>{
 	console.log(`De server draait op port ${process.env.PORT}`);
 });
