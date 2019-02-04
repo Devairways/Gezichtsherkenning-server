@@ -8,9 +8,9 @@ const logHandler = (req,res,bcrypt,database)=>{
 	database.select('hash','email').from('login')
 	.where('email','=',email)
 	.then(data =>{
-		console.log(data)
 		const isGeldig = bcrypt.compareSync(password, data[0].hash);
 		if(isGeldig){
+			console.log(isGeldig)
 			database.select('*').from('gebruikers')
 			.where('email','=',email)
 			.then(gebruiker =>{
