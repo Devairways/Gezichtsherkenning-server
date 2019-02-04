@@ -14,8 +14,8 @@ const logHandler = (req,res,bcrypt,database)=>{
 			return database.select('*').from('gebruikers')
 			.where('email','=',email)
 			.then(gebruiker =>{
-				console.log(gebruiker[1])
-				res.json(gebruiker[1]);
+				console.log(gebruiker[0])
+				res.json(gebruiker[0]);
 			})
 			.catch(err=> res.status(400).json('kan gebruiker niet ophalen'))
 		}else{
