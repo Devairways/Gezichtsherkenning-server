@@ -4,7 +4,7 @@ const logHandler = (req,res,bcrypt,database)=>{
 	const { email,password } = req.body;
 	if (!email || !password){
 		return res.status(400).json("formulier onjuist ingevuld");
-	}else{
+	}
 	database.select('hash','email').from('login')
 	.where('email','=',email)
 	.then(data =>{
@@ -22,7 +22,6 @@ const logHandler = (req,res,bcrypt,database)=>{
 			res.status(400).json('Geen gebruiker gevonden')
 		}
 	})
-    }
 	.catch(err=>{
 		res.status(400).json('geen gebruiker gevonden')
 	})
@@ -30,4 +29,5 @@ const logHandler = (req,res,bcrypt,database)=>{
 
 module.exports = {
 	logHandler
+
 }
