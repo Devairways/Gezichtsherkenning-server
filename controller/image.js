@@ -24,5 +24,7 @@ const imgHandler = (req,res,database)=>{
 }
 
 module.exports  = {
-	imgHandler
+	imgHandler,
+	apiHandler
+
 }
