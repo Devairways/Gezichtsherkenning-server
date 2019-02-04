@@ -11,7 +11,7 @@ const logHandler = (req,res,bcrypt,database)=>{
 		const isGeldig = bcrypt.compareSync(password, data[0].hash);
 		if(isGeldig){
 			console.log(isGeldig)
-			database.select('*').from('gebruikers')
+			return database.select('*').from('gebruikers')
 			.where('email','=',email)
 			.then(gebruiker =>{
 				console.log(gebruiker[1])
