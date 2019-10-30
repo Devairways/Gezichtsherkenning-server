@@ -8,10 +8,10 @@ const emailCheck = (req,res,database)=>{
 		.then(data =>{
 				console.log(data)
 		if (!data[0]){
-			return res.status(400).json(false);
+			return res.status(200).json(true);
 		}
 		else{
-			return res.status(400).json(true);
+			return res.status(200).json(false);
 		}
 		})
 	
