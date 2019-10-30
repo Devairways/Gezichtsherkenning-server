@@ -4,14 +4,17 @@ const emailCheck = (req,res,database)=>{
 		return res.status(400).json(false);
 	}
 	else{
-		let bestaat = database.select('email').from('login')
-	.where('email','=',email);
-	if (email){
-		return res.status(400).json(false);
-	}
-	else{
-		return res.status(400).json(true);
-	}
+		database.select('email').from('login').where('email','=',email)
+		.then(data =>{
+				console.log(data)
+		if (!data[0]){
+			return res.status(400).json(false);
+		}
+		else{
+			return res.status(400).json(true);
+		}
+		})
+	
 	}
 }
 
