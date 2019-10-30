@@ -1,3 +1,18 @@
+const emailCheck = (req,res,database)=>{
+	if (!email){
+		return res.status(400).json(false);
+	}
+	else{
+		let bestaat = database.select('email').from('login')
+	.where('email','=',email);
+	if (email){
+		return res.status(400).json(false);
+	}
+	else{
+		return res.status(400).json(true);
+	}
+	}
+}
 
 const regHandler = (req,res,bcrypt,database)=>{
 	const { email,naam,password } = req.body;
@@ -33,5 +48,6 @@ const regHandler = (req,res,bcrypt,database)=>{
 };
 
 module.exports ={
-	regHandler
+	regHandler,
+	emailCheck
 };

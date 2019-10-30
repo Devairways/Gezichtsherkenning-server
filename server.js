@@ -24,6 +24,7 @@ app.use(cors());
 app.get('/',(req,res)=>{res.send("succes")});
 app.post('/login',(req,res)=>{login.logHandler(req,res,bcrypt,database)});
 app.post("/registreer", (req,res) => {registreer.regHandler(req,res,bcrypt,database)});
+app.post("/check", (req,res) => {registreer.emailCheck(req,res,database)});
 app.get('/gebruiker/:id', (req,res) => {profiel.profileHandler(req,res,database)});
 app.put('/image',(req,res) => {img.imgHandler(req,res,database)});
 app.post('/imageurl',(req,res) => {img.apiHandler(req,res)});
